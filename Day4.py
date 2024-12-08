@@ -44,6 +44,29 @@ def check_if_word_is_xmas(word):
         return 1
     return 0
 
+def check_if_word_is_mas(word):
+    if word == 'MAS' or word == 'SAM':
+        return True
+    return False
+
+def check_if_position_is_X_MAS(lines, row, position):
+    diagonal = lines[row-1][position-1]+lines[row][position]+lines[row+1][position+1]
+    diagonal_back = lines[row-1][position+1]+lines[row][position]+lines[row+1][position-1]
+    if check_if_word_is_mas(diagonal) and check_if_word_is_mas(diagonal_back):
+        return True
+    else:
+        return False
+
+def count_X_MAS(lines):
+    total_count = 0
+    for row in range(1, len(lines)-1):
+        for position in range(1, len(lines[row])-1):
+            if check_if_position_is_X_MAS(lines, row, position):
+                total_count += 1
+    return total_count
+
+
 
 lines = read_input()
 print(f'Total number of XMAS: {count_XMAS(lines)}')
+print(f'Total number of X-MAS: {count_X_MAS(lines)}')
