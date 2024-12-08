@@ -1,7 +1,7 @@
 import os
 
 
-def read_input_day1(file_path):
+def read_input(file_path):
     left = []
     right =[]
     with open(file_path, 'r') as file:
@@ -13,7 +13,7 @@ def read_input_day1(file_path):
         right.sort()
         return left, right
 
-left, right = read_input_day1("input/Day1.txt")
+left, right = read_input("input/Day1.txt")
 
 diff = 0
 for a,b in zip(left, right):

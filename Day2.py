@@ -1,7 +1,7 @@
 import os
 
 
-def read_input_day2(file_path):
+def read_input(file_path):
     reports = []
     with open(file_path, 'r') as file:
         for line in file:
@@ -30,7 +30,7 @@ def count_valid_reports(reports):
 
 
 
-reports = read_input_day2('input/Day2.txt')
+reports = read_input('input/Day2.txt')
 valid_reports = count_valid_reports(reports, 1)
 print(f'Number of valid reports: {valid_reports}')
 
